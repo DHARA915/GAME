@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Water Gun Game</title>
+<style>
+body{
+    background-color: rgb(174, 171, 174);
+}
+h1{
+    font-size:50px;
+    text-align: center;
+    margin-bottom:150px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+}
+
+button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px 20px;
+        align-items: center;
+        margin-left: 600px;
+    }
+</style>
+   
+</head>
+
+ <script>
+    function playGame()
+{
+  let user=prompt("Enter S,W or G").toLowerCase();
+  let choice=['s' , 'w' , 'g'];
+  let select=choice[Math.floor(Math.random()*choice.length)];
+    var result;
+  if (user === select) {
+      result = "It's a tie!";
+  } else if (user === 's') {
+      result = (select === 'w') ? "You win!" : "You lose!";
+  } else if (user === 'w') {
+      result = (select === 'g') ? "You win!" : "You lose!";
+  } else if (user === 'g') {
+      result = (select === 's') ? "You win!" : "You lose!";
+  } else {
+      result = "Invalid choice! Please choose s, w, or g";
+  }
+
+  alert("Your choice: " + user + "\nComputer's choice: " + select + "\nResult: " + result);
+
+var playAgain = confirm("Do you want to play again?");
+if (playAgain) {
+    playGame(); // Play again if confirmed
+}
+}
+ </script>   
+<body>
+    <h1> Snake Water Gun Game</h1>
+    <button class="center"  onclick="playGame()">Play Snake Water Gun Game</button>
+</body>
+</html>
